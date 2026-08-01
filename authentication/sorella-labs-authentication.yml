@@ -1,0 +1,26 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.angstrom.xyz/api/intro
+summary:
+  types: [none]
+  notes: >-
+    The Angstrom API is a public, decentralized JSON-RPC surface. The
+    documentation (https://docs.angstrom.xyz/api/intro) documents open
+    HTTPS/WebSocket node endpoints and a Data API with no API-key, OAuth, or
+    bearer-token requirement described. Authorization of state-changing actions
+    is enforced on-chain (transactions are signed with the caller's Ethereum
+    key and validated by the Angstrom Uniswap V4 hook), not by an API
+    credential.
+schemes:
+- name: public-json-rpc
+  type: none
+  transport: [https, websocket]
+  endpoints:
+  - https://mainnet.node-lb.angstrom.xyz
+  - wss://mainnet.node-lb.angstrom.xyz
+  - https://mainnet.node.data.angstrom.xyz
+  sources: [docs.angstrom.xyz/api/intro]
+onchain_authorization: >-
+  State-changing operations are authorized by Ethereum transaction signatures
+  and validated by the Angstrom smart contracts (Uniswap V4 hook), not by an
+  API-layer credential.

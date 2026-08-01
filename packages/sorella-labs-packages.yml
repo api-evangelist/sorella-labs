@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/SorellaLabs
+notes: >-
+  First-party libraries are published as Rust crates in the Sorella Labs GitHub
+  organization (github.com/SorellaLabs) and referenced from the Angstrom docs
+  Technical Libraries section (https://docs.angstrom.xyz/TechnicalLibraries/intro).
+  As of this pass they are distributed via Git (not published to crates.io — the
+  crates.io name "brontes" resolves to an unrelated third-party crate, verified
+  2026-07-21). registry recorded as "github" accordingly.
+packages:
+- language: rust
+  registry: github
+  name: angstrom-sdk-rs
+  url: https://github.com/SorellaLabs/angstrom-sdk-rs
+  install: 'cargo add --git https://github.com/SorellaLabs/angstrom-sdk-rs'
+  description: >-
+    Rust SDK for interacting directly with the Angstrom protocol (quoting,
+    order construction, on-chain data access).
+  official: true
+- language: rust
+  registry: github
+  name: angstrom-v4
+  url: https://github.com/SorellaLabs/angstrom-v4
+  install: 'cargo add --git https://github.com/SorellaLabs/angstrom-v4'
+  description: >-
+    Rust tools for interacting with and managing Uniswap V4 pool state with
+    Angstrom-specific features.
+  official: true
+- language: rust
+  registry: github
+  name: brontes
+  url: https://github.com/SorellaLabs/brontes
+  install: 'cargo install --git https://github.com/SorellaLabs/brontes'
+  description: >-
+    Blazingly fast general-purpose blockchain analytics engine specialized in
+    systematic MEV detection.
+  official: true

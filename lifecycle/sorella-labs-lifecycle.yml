@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.angstrom.xyz
+versioning:
+  scheme: docs-versioned
+  current: v1
+  docs: https://docs.angstrom.xyz
+  notes: >-
+    Documentation set and whitepaper are labeled "v1". API endpoint paths are
+    JSON-RPC methods (unversioned in the URL); the Data API and node endpoints
+    are the mainnet surface.
+whitepaper: https://docs.angstrom.xyz
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation/sunset policy published as of this pass.
+sla:
+  url: null
+  notes: >-
+    No published SLA. Decentralized node network; a load-balanced endpoint is
+    provided "for convenience and high availability" but with no uptime target.
+status_page: null
+experimental_surfaces:
+- Direct-node WebSocket endpoints (wss://ws.mainnet.node1..3.angstrom.xyz) are
+  documented as experimental; docs advise using the load-balancer WebSocket until
+  they stabilize.
+- Angstrom L2 product line is described as "emerging".

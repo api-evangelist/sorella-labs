@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.angstrom.xyz/api/intro
+standards:
+- id: json-rpc-2.0
+  conforms: true
+  evidence: >-
+    Docs state each Angstrom node runs its own JSON-RPC server exposing the
+    trading, gas-estimation and streaming API.
+- id: websocket
+  conforms: true
+  evidence: >-
+    WebSocket streaming endpoints (wss://mainnet.node-lb.angstrom.xyz) documented
+    for live order-update subscriptions.
+- id: ethereum-json-rpc
+  conforms: true
+  evidence: >-
+    Built on Ethereum / Uniswap V4; on-chain Data API and node RPC align with
+    Ethereum JSON-RPC ecosystem conventions.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: JSON-RPC 2.0 error objects are used, not application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: Public JSON-RPC; no OAuth2 flows documented.
+- id: openapi
+  conforms: false
+  evidence: No OpenAPI/Swagger description published; API is JSON-RPC.
+compliance_programs:
+  found: false
+  notes: >-
+    No SOC 2 / ISO 27001 / PCI / HIPAA / trust-center or formal compliance
+    program found on sorellalabs.xyz or docs.angstrom.xyz as of this pass.

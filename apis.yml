@@ -1,8 +1,22 @@
 aid: sorella-labs
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 8
+  pass: local-v1
 name: Sorella Labs
-description: 'Sorella Labs is a company surfaced as a portfolio company of paradigm and added to the API
-  Evangelist network as a stub for enrichment. Sector: crypto-infrastructure. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Sorella Labs is a crypto-infrastructure company building Angstrom, a new kind
+  of decentralized exchange (DEX) built on top of Uniswap V4 that internalizes
+  MEV through application-level sequencing. By enforcing its own transaction
+  ordering, Angstrom redirects value that would normally be extracted by MEV
+  bots and validators back to the actual participants — liquidity providers and
+  swappers. The company also builds Brontes, a Rust blockchain-analytics engine
+  specialized in systematic MEV detection. Angstrom exposes a decentralized
+  JSON-RPC API — each node runs its own JSON-RPC server, with a recommended
+  load-balanced HTTPS/WebSocket endpoint plus a separate on-chain Data API — and
+  ships Rust libraries (angstrom-sdk, angstrom-v4) for integrators, routers, and
+  solvers. Backed by Paradigm.
 url: https://raw.githubusercontent.com/api-evangelist/sorella-labs/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,13 +24,51 @@ x-backed-by:
 - paradigm
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://sorellalabs.xyz/logo.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Crypto Infrastructure
-apis: []
+- DeFi
+- Decentralized Exchange
+- MEV
+- Ethereum
+- Uniswap V4
+- JSON-RPC
+- Blockchain
+- Trading
+apis:
+- name: Angstrom API
+  description: >-
+    Decentralized JSON-RPC + WebSocket API for the Angstrom DEX. Every Angstrom
+    node runs its own JSON-RPC server (there is no single central API); a
+    load-balanced HTTPS/WebSocket endpoint is recommended for high availability,
+    with direct low-latency node endpoints and a separate on-chain Data API also
+    available. Endpoint categories: Trading (order submission, cancellation,
+    status, retrieval), Gas Estimation, WebSocket Streams (live order updates),
+    Exchange metadata (token pairs, token registry, pool keys, pool config), and
+    Liquidity positions.
+  humanURL: https://docs.angstrom.xyz/api/intro
+  baseURL: https://mainnet.node-lb.angstrom.xyz
+  properties:
+  - type: APIReference
+    url: https://docs.angstrom.xyz/api/intro
+  - type: Documentation
+    url: https://docs.angstrom.xyz
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +77,39 @@ maintainers:
 common:
 - type: Website
   url: https://sorellalabs.xyz
+- type: DeveloperPortal
+  url: https://docs.angstrom.xyz
+- type: Documentation
+  url: https://docs.angstrom.xyz
+- type: APIReference
+  url: https://docs.angstrom.xyz/api/intro
+- type: GettingStarted
+  url: https://docs.angstrom.xyz/integrators/intro
+- type: GitHubOrganization
+  url: https://github.com/SorellaLabs
+- type: Blog
+  url: https://sorellalabs.xyz/writing
+- type: Support
+  url: https://discord.gg/M2jPzgUQd2
+- type: Whitepaper
+  url: https://docs.angstrom.xyz
+- type: X
+  url: https://twitter.com/sorellalabs
+- type: LinkedIn
+  url: https://www.linkedin.com/company/sorella-labs/
+- type: SDKs
+  url: packages/sorella-labs-packages.yml
+- type: Packages
+  url: packages/sorella-labs-packages.yml
+- type: Authentication
+  url: authentication/sorella-labs-authentication.yml
+- type: Conventions
+  url: conventions/sorella-labs-conventions.yml
+- type: Conformance
+  url: conformance/sorella-labs-conformance.yml
+- type: Lifecycle
+  url: lifecycle/sorella-labs-lifecycle.yml
+- type: LLMsTxt
+  url: llms/sorella-labs-llms.txt
+- type: DomainSecurity
+  url: security/sorella-labs-domain-security.yml

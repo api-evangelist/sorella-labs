@@ -1,0 +1,70 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.angstrom.xyz/api/intro
+api: Angstrom API
+transport:
+  protocols: [json-rpc, websocket]
+  description: >-
+    Angstrom is a decentralized network in which each node runs its own
+    JSON-RPC server; there is no single central API host.
+  endpoints:
+    load_balanced:
+      https: https://mainnet.node-lb.angstrom.xyz
+      websocket: wss://mainnet.node-lb.angstrom.xyz
+      recommended: true
+    direct_nodes:
+      https:
+      - https://mainnet.node1.angstrom.xyz
+      - https://mainnet.node2.angstrom.xyz
+      - https://mainnet.node3.angstrom.xyz
+      websocket_experimental:
+      - wss://ws.mainnet.node1.angstrom.xyz
+      - wss://ws.mainnet.node2.angstrom.xyz
+      - wss://ws.mainnet.node3.angstrom.xyz
+    data_api: https://mainnet.node.data.angstrom.xyz
+authentication:
+  style: none-public
+  ref: authentication/sorella-labs-authentication.yml
+  notes: >-
+    Public JSON-RPC endpoints; state-changing operations are authorized on-chain
+    via Ethereum transaction signatures rather than an API credential.
+endpoint_categories:
+- name: Trading
+  description: Manage orders — submission, cancellation, status updates, retrieval.
+- name: Gas Estimation
+  description: Obtain gas estimates for trades.
+- name: WebSocket Streams
+  description: Subscribe to live order updates based on client-specified filters.
+- name: Exchange
+  description: >-
+    Core exchange metadata — supported token pairs, token registry, pool
+    keys/identifiers, on-chain pool configuration (Data API only).
+- name: Liquidity
+  description: >-
+    Query user liquidity positions — all positions for an address or filtered to
+    a specific pool (Data API only).
+streaming:
+  style: json-rpc-websocket-subscription
+  description: >-
+    Live order updates are delivered over WebSocket subscriptions, not
+    provider-initiated HTTP webhooks. Clients connect to the WebSocket endpoint
+    and subscribe with filters.
+idempotency:
+  supported: false
+  notes: >-
+    No API-layer idempotency-key mechanism is documented. On-chain order
+    semantics (nonces, signed orders) provide replay protection at the protocol
+    layer rather than via an HTTP Idempotency-Key header.
+versioning:
+  scheme: docs-versioned
+  current: v1
+  notes: Documentation and whitepaper are labeled v1.
+error_envelope:
+  format: json-rpc-2.0
+  notes: >-
+    JSON-RPC 2.0 error objects (code, message, data). Not derived from an
+    OpenAPI/problem+json contract; the provider ships no OpenAPI.
+cross_links:
+  authentication: authentication/sorella-labs-authentication.yml
+  conformance: conformance/sorella-labs-conformance.yml
+  lifecycle: lifecycle/sorella-labs-lifecycle.yml

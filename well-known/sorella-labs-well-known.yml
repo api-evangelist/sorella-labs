@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: probed
+notes: >-
+  Probed the standard /.well-known/ discovery surface on both hosts. The
+  marketing site (sorellalabs.xyz) is a Next.js SPA whose catch-all route returns
+  HTTP 200 with the HTML homepage for ANY path — including /.well-known/security.txt
+  — so its 200s are NOT real well-known documents (verified: body is the site
+  HTML, not RFC 9116 text). The docs host (docs.angstrom.xyz, Docusaurus) returns
+  genuine 404s for all probed paths. No real well-known discovery documents exist;
+  no WellKnown/SecurityTxt pointer is wired (no fabrication).
+hosts:
+- host: https://sorellalabs.xyz
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    real: false
+    reason: SPA catch-all returns homepage HTML, not RFC 9116 security.txt
+- host: https://docs.angstrom.xyz
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
